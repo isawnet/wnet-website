@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WNet Games</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" href="favicon.ico" />
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="logo">WNET Games</div>
+    <nav>
+        <ul class="nav-buttons">
+          <li><a class="btn-nav" href="about.html">About Us</a></li>
+        </ul>
+      </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <h1>The Future of Online Gaming Starts Here</h1>
+    <a href="mailto:contact@wnet-games.net" class="btn-primary">Contact Now</a>
+  </section>
+
+  <!-- CAROUSEL -->
+  <section class="carousel">
+    <div class="slides">
+      <div class="slide"><img src="assets/images/carrousel_image_1.png" alt="Slot Game 1"></div>
+      <div class="slide"><img src="assets/images/carrousel_image_2.png" alt="Slot Game 2"></div>
+      <div class="slide"><img src="assets/images/carrousel_image_3.png" alt="Slot Game 3"></div>
+    </div>
+    <button class="arrow prev">&#10094;</button>
+    <button class="arrow next">&#10095;</button>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="feature-card">
+        <h3>Expertise</h3>
+        <p>With the best providers</p> <br>
+        <ul class="provider-list">
+          <li>
+            <img src="assets/logos/netEntLogo.png" alt="NetEnt Logo" class="provider-logo">
+          </li>
+          <li>
+            <img src="assets/logos/pragmaticLogo.png" alt="Pragmatic Play Logo" class="provider-logo">
+          </li>
+          <li>
+            <img src="assets/logos/betSoftLogo.png" alt="BetSoft Logo" class="provider-logo">
+          </li>
+        </ul>
+    </div>
+    <div class="feature-card">
+        <h3>Multinetwork</h3>
+        <p>Infinite posibilities</p> <br>
+        <ul class="provider-list">
+          <li>
+            <img src="assets/logos/eth.png" alt="eth Logo" class="provider-logo">
+          </li>
+          <li>
+            <img src="assets/logos/pol.png" alt="pol Logo" class="provider-logo">
+          </li>
+          <li>
+            <img src="assets/logos/arb.png" alt="arb Logo" class="provider-logo">
+          </li>
+          <li>
+            <img src="assets/logos/btc.png" alt="btc Logo" class="provider-logo">
+          </li>
+        </ul>
+    </div>
+    <div class="feature-card">
+      <h3>Cross-Platform</h3>
+      <p>Play on any device, anywhere.</p><br>
+      <ul class="provider-list">
+        <li>
+          <img src="assets/logos/win.png" alt="eth Logo" class="provider-logo">
+        </li>
+        <li>
+          <img src="assets/logos/ios.png" alt="pol Logo" class="provider-logo">
+        </li>
+        <li>
+          <img src="assets/logos/android.png" alt="arb Logo" class="provider-logo">
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+      <center>
+    <div class="footer-bottom">
+      &copy; <span id="year"></span>2022 WNET Games. All rights reserved.
+    </div>
+    </center>
+  </footer>
+
+  <!-- JS for Carousel and Footer Year -->
+  <script>
+    // Footer Year
+
+    // Simple Carousel
+    (function() {
+      const slides = document.querySelector('.slides');
+      const slideCount = slides.children.length;
+      let index = 0;
+
+      document.querySelector('.arrow.next').addEventListener('click', () => {
+        index = (index + 1) % slideCount;
+        slides.style.transform = `translateX(-${index * 100}%)`;
+      });
+      document.querySelector('.arrow.prev').addEventListener('click', () => {
+        index = (index - 1 + slideCount) % slideCount;
+        slides.style.transform = `translateX(-${index * 100}%)`;
+      });
+
+      // Auto-play every 5 seconds
+      setInterval(() => {
+        index = (index + 1) % slideCount;
+        slides.style.transform = `translateX(-${index * 100}%)`;
+      }, 5000);
+    })();
+  </script>
+
+</body>
+</html>

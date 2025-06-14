@@ -1,0 +1,251 @@
+:root {
+    /* Primary + Analogous */
+    --color-primary: #729C44;       /* Logo/Main headings */
+    --color-analogous-1: #9C8C44;
+    --color-analogous-2: #449C52;
+    /* Complementary */
+    --color-complementary-1: #52449C;
+    --color-complementary-2: #8C449C;
+    /* Triadic */
+    --color-triadic-1: #44729C;
+    --color-triadic-2: #9C4472;
+    /* Neutrals */
+    --bg-dark: #0a0a0a;
+    --bg-darker: #111;
+    --text-light: #eee;
+    --text-mid: #ccc;
+    --text-dark: #555;
+    --btn-text: #111;
+  }
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-x: hidden; 
+  }
+  
+  body::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  
+    background-image:
+      radial-gradient(circle, rgba(114, 156, 68, 0.15) 8px, transparent 2px),
+      radial-gradient(circle, rgba(138, 68, 156, 0.15) 8px, transparent 2px),
+      radial-gradient(circle, rgba(255, 255, 255, 0.05) 8px, transparent 2px);
+  
+    background-size: 300px 300px;
+    background-position: 10% 20%, 60% 40%, 80% 70%;
+    animation: sparkFlicker 1s ease-in-out infinite alternate;
+  }
+  @keyframes sparkFlicker {
+    0% {
+      opacity: 0.3;
+      background-position: 10% 20%, 60% 40%, 80% 70%;
+    }
+    50% {
+      opacity: 0.6;
+      background-position: 12% 22%, 58% 42%, 78% 72%;
+    }
+    100% {
+      opacity: 0.3;
+      background-position: 10% 20%, 60% 40%, 80% 70%;
+    }
+  }
+  main {
+    flex: 1;
+  }
+  a { color: var(--analogous-1); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  /* HEADER */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: rgba(0,0,0,0.8);
+    position: sticky; top: 0; z-index: 100;
+  }
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-primary);
+  }
+  nav ul {
+    display: flex; gap: 1.5rem; list-style: none;
+  }
+  nav li { font-size: 1rem; }
+  .nav-buttons {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+  }
+  
+  .btn-nav {
+    background: var(--color-primary);
+    color: white;
+    padding: 0.25em 1.5rem;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .btn-nav:hover {
+    background: white;
+    color: var(--color-primary);
+    box-shadow: 0 0 12px var(--color-primary);
+  }
+  /* HERO */
+  .hero {
+    min-height: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 1rem;
+    position: relative;
+    z-index: 1;
+  }
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--analogous-2);
+    text-shadow: 0 0 10px rgba(68,157,82,0.7);
+  }
+  .hero p {
+    font-size: 1.2rem; max-width: 600px; margin-bottom: 2rem;
+  }
+  .btn-primary {
+    background: var(--color-primary);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease-in-out;
+  }
+  .btn-primary:hover {
+    background: white;
+    color: var(--color-primary);
+    box-shadow: 0 0 12px var(--color-primary);
+  }
+  /* CAROUSEL */
+  .carousel {
+    position: relative; overflow: hidden;
+    max-width: 750px; margin: 3rem auto;
+    max-height: 750px; margin: 3rem auto;
+  }
+  .slides {
+    display: flex; transition: transform 0.5s ease-in-out;
+  }
+  .slide { min-width: 100%; user-select: none; }
+  .slide img { display: block; width: 100%; height: auto; }
+  .carousel .arrow {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: rgba(0,0,0,0.5); border: none;
+    font-size: 2rem; color: var(--text-light); cursor: pointer;
+    padding: 0.5rem; border-radius: 50%; transition: background 0.2s;
+  }
+  .carousel .arrow:hover {
+    background: rgba(0,0,0,0.8);
+  }
+  .arrow.prev { left: 1rem; }
+  .arrow.next { right: 1rem; }
+  /* FEATURES GRID */
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem; padding: 2rem;
+  }
+  .feature-card {
+    background: var(--bg-darker);
+    border-radius: 8px; padding: 1.5rem;
+    text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    transition: transform 0.2s;
+  }
+  .feature-card:hover {
+    transform: translateY(-5px);
+  }
+  .feature-card h3 {
+    margin-bottom: 1rem;
+    color: var(--color-complementary-1);
+  }
+  .feature-card p {
+    font-size: 0.95rem; color: var(--text-mid);
+  }
+  /* FOOTER */
+  footer {
+    background: var(--bg-darker);
+    color: var(--text-mid);
+    padding: 0.10rem 0.25rem;
+  }
+  .footer-container {
+    display: flex; flex-wrap: wrap; gap: 2rem;
+    justify-content: space-between; max-width: 1200px; margin: auto;
+  }
+  .footer-col {
+    flex: 1 1 200px;
+  }
+  .footer-col h4 {
+    margin-bottom: 1rem; color: var(--color-complementary-2);
+  }
+  .footer-col ul {
+    list-style: none;
+  }
+  .footer-col li {
+    margin-bottom: 0.5rem; font-size: 0.9rem;
+  }
+  .footer-bottom {
+    text-align: center; margin-top: 2rem;
+    font-size: 0.8rem; color: var(--text-dark);
+    background-color: var(--bg-darker);
+    padding: 1rem;
+  }
+  .provider-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* spacing between logos */
+    flex-wrap: wrap; /* allows wrapping on smaller screens */
+  }
+  .provider-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* space between logo and text */
+    margin-bottom: 8px;
+  }
+  .provider-logo {
+    height: 64px; /* adjust as needed */
+    width: auto;
+    object-fit: contain;
+    background-color: white;
+    padding: 4px;
+    border-radius: 4px; /* optional */
+  }
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 2rem; }
+    header { flex-direction: column; gap: 1rem; }
+  }
